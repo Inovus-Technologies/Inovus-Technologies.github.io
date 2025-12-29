@@ -1,0 +1,259 @@
+/* ================= GLOBAL RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: radial-gradient(circle at top, #0f172a 0%, #0b0e14 60%);
+    color: #e5e7eb;
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+}
+
+/* ================= GENERAL LAYOUT ================= */
+section {
+    padding: 90px 10%;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 28px;
+}
+
+p {
+    color: #9ca3af;
+    max-width: 820px;
+}
+
+/* ================= HERO ================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.hero-label {
+    color: #5eead4;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: 2.35rem;
+    font-weight: 600;
+    margin-bottom: 26px;
+    line-height: 1.3;
+}
+
+.hero-subtext {
+    font-size: 1.05rem;
+    margin-bottom: 38px;
+}
+
+/* ================= BUTTONS ================= */
+.hero-actions {
+    display: flex;
+    gap: 18px;
+}
+
+.btn {
+    padding: 13px 30px;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+}
+
+.primary {
+    background: linear-gradient(135deg, #5eead4, #38bdf8);
+    color: #0b0e14;
+}
+
+.primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(94, 234, 212, 0.25);
+}
+
+.secondary {
+    background: transparent;
+    border: 1px solid #5eead4;
+    color: #5eead4;
+}
+
+.secondary:hover {
+    background: rgba(94, 234, 212, 0.08);
+}
+
+/* ================= SUMMARY ================= */
+.summary p {
+    margin-bottom: 18px;
+}
+
+/* ================= SKILLS ================= */
+.skills {
+    background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.6),
+        rgba(15, 23, 42, 0.2)
+    );
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+}
+
+.skill-box {
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 32px;
+    backdrop-filter: blur(6px);
+}
+
+.skill-box h3 {
+    color: #5eead4;
+    margin-bottom: 14px;
+}
+
+.skill-box ul {
+    list-style: none;
+}
+
+.skill-box li {
+    margin-bottom: 10px;
+    padding-left: 18px;
+    position: relative;
+}
+
+.skill-box li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #5eead4;
+}
+
+/* ================= EXPERIENCE ================= */
+.experience p {
+    margin-bottom: 16px;
+}
+
+/* ================= PROJECTS ================= */
+.projects {
+    background: #0f172a;
+}
+
+.project-list {
+    display: grid;
+    gap: 28px;
+}
+
+.project {
+    background: rgba(17, 24, 39, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 30px;
+    transition: all 0.25s ease;
+}
+
+.project:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.project h3 {
+    color: #5eead4;
+    margin-bottom: 10px;
+}
+
+/* ================= THINKING ================= */
+.thinking ul {
+    list-style: none;
+    max-width: 820px;
+}
+
+.thinking li {
+    margin-bottom: 14px;
+    padding-left: 22px;
+    position: relative;
+}
+
+.thinking li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #5eead4;
+}
+
+/* ================= FIT ================= */
+.fit {
+    background: linear-gradient(
+        135deg,
+        rgba(94, 234, 212, 0.06),
+        rgba(56, 189, 248, 0.05)
+    );
+    border-radius: 18px;
+    margin: 0 10%;
+}
+
+.fit p {
+    color: #d1d5db;
+}
+
+/* ================= CTA ================= */
+.cta {
+    text-align: center;
+}
+
+.cta p {
+    margin: 18px auto 34px;
+    max-width: 650px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    padding: 40px 10%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    section {
+        padding: 70px 7%;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
