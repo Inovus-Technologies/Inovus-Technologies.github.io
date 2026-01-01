@@ -10,51 +10,92 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<div id="preloader">
+    <div class="loader-text">
+        <span class="cmd-line">> Initializing System...</span>
+        <span class="cmd-line delay-1">> Loading Neural Core...</span>
+        <span class="cmd-line delay-2">> Access Granted.</span>
+    </div>
+</div>
+
+<div id="custom-cursor"></div>
+
+<canvas id="neural-canvas"></canvas>
+
+<div class="scroll-progress"></div>
+
+<nav class="navbar">
+    <div class="logo">DS<span class="dot">.</span></div>
+    
+    <ul class="nav-links">
+        <li><a href="#summary" class="hover-trigger">About</a></li>
+        <li><a href="#skills" class="hover-trigger">Skills</a></li>
+        <li><a href="#projects" class="hover-trigger">Work</a></li>
+        <li><button id="navContactBtn" class="btn-small hover-trigger">Contact</button></li>
+    </ul>
+
+    <div class="menu-toggle hover-trigger" id="mobile-menu">
+        <span class="bar top"></span>
+        <span class="bar bottom"></span>
+    </div>
+</nav>
+
+<div class="mobile-dropdown" id="mobile-dropdown">
+    <nav class="mobile-nav-content">
+        <a href="#summary" class="mobile-link" style="--i:1;">About</a>
+        <a href="#skills" class="mobile-link" style="--i:2;">Skills</a>
+        <a href="#projects" class="mobile-link" style="--i:3;">Work</a>
+        <a href="#contactSection" class="mobile-link" style="--i:4;">Contact</a>
+    </nav>
+</div>
+
 <section class="hero">
     <div class="hero-content">
-        <p class="hero-label anim-hidden delay-1">AI • Programming • Systems Thinking</p>
-        <h1 class="anim-hidden delay-2">Designing intelligent, <br> <span class="highlight">logic-driven</span> software systems.</h1>
+        <div class="hero-label anim-hidden delay-1">
+            <span class="status-dot"></span> System Status: Online
+        </div>
+        
+        <h1 class="anim-hidden delay-2">
+            Building systems with <br> 
+            <span class="typing-text"></span><span class="cursor">|</span>
+        </h1>
+
         <p class="hero-subtext anim-hidden delay-3">
-            I’m Deepak Sharma — building clarity, correctness, and long-term systems.
-            I use Artificial Intelligence as a reasoning partner, not a shortcut.
+            I’m Deepak Sharma. I use Artificial Intelligence as a reasoning partner
+            to build scalable, logic-driven software solutions.
         </p>
 
         <div class="hero-actions anim-hidden delay-4">
-            <button id="viewProjectsBtn" class="btn primary">View Projects</button>
-            <button id="contactBtn" class="btn secondary">Contact</button>
+            <button id="viewProjectsBtn" class="btn primary hover-trigger">View Projects</button>
+            <button id="contactBtn" class="btn secondary hover-trigger">Contact</button>
         </div>
     </div>
-    
-    <div class="hero-glow"></div>
 </section>
 
-<section class="summary scroll-trigger">
+<section class="summary scroll-trigger" id="summary">
     <h2>Professional Summary</h2>
     <div class="text-block">
         <p>
-            I am a self-driven developer with a strong interest in programming,
-            computer science fundamentals, and system-level design.
-            My work emphasizes logic-first solutions, explainability,
-            and scalable thinking over quick fixes.
-        </p>
-        <p>
-            I actively integrate Artificial Intelligence into my workflow
-            to analyze problems, evaluate multiple approaches,
-            and refine solutions before implementation.
+            I am a self-driven developer focused on computer science fundamentals 
+            and system-level design. My work emphasizes logic-first solutions, 
+            explainability, and scalable thinking over quick fixes.
         </p>
     </div>
 </section>
 
-<section class="skills scroll-trigger">
+<section class="skills scroll-trigger" id="skills">
     <h2>Core Competencies</h2>
     <div class="skills-grid">
-        <div class="skill-box">
+        <div class="skill-box tilt-card hover-trigger">
+            <div class="icon-box"><i class="ph ph-code"></i></div>
             <h3>Programming & Logic</h3>
             <ul>
                 <li>Problem decomposition</li>
@@ -62,7 +103,8 @@
                 <li>Clean, maintainable code</li>
             </ul>
         </div>
-        <div class="skill-box">
+        <div class="skill-box tilt-card hover-trigger">
+            <div class="icon-box"><i class="ph ph-robot"></i></div>
             <h3>AI-Assisted Dev</h3>
             <ul>
                 <li>Technical prompt engineering</li>
@@ -70,7 +112,8 @@
                 <li>Human-in-the-loop workflows</li>
             </ul>
         </div>
-        <div class="skill-box">
+        <div class="skill-box tilt-card hover-trigger">
+            <div class="icon-box"><i class="ph ph-graph"></i></div>
             <h3>System Thinking</h3>
             <ul>
                 <li>Architecture design</li>
@@ -81,53 +124,58 @@
     </div>
 </section>
 
-<section class="experience scroll-trigger">
-    <h2>Experience & Approach</h2>
-    <p>
-        My experience is built through continuous hands-on learning and deep exploration of internal systems.
-        I focus on understanding fundamentals rather than relying blindly on tools.
-        This approach enables me to adapt quickly and design solutions that remain understandable.
-    </p>
-</section>
-
 <section class="projects scroll-trigger" id="projects">
     <h2>Selected Work</h2>
     <div class="project-list">
-        <div class="project">
-            <h3>Indus AI Project</h3>
+        
+        <div class="project tilt-card hover-trigger">
+            <div class="project-header">
+                <h3>Indus AI Project</h3>
+                <span class="project-status">Concept</span>
+            </div>
             <p>
                 Conceptual architecture for self-learning AI systems inspired by human reasoning. 
                 Focused on explainability and handcrafted logic.
             </p>
-            <a href="https://www.linkedin.com/posts/deepak-sharma-aaa280331_ai-machinelearning-innovation-activity-7356348594997628930-5iHg?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAFOC9iIBHW0DkccsgM9_Tbd9c1ESXnpdsZE&utm_campaign=copy_link" target="_blank" class="link-text">View Concept on LinkedIn →</a>
+            <div class="tech-stack">
+                <span>System Design</span>
+                <span>AI Logic</span>
+                <span>Architecture</span>
+            </div>
+            <a href="https://www.linkedin.com/posts/deepak-sharma-aaa280331_ai-machinelearning-innovation-activity-7356348594997628930-5iHg" target="_blank" class="link-text hover-trigger">View Concept →</a>
         </div>
         
-        <div class="project">
-            <h3>Logic Prototypes</h3>
+        <div class="project tilt-card hover-trigger">
+            <div class="project-header">
+                <h3>Logic Prototypes</h3>
+            </div>
             <p>
                 Built multiple experimental programs to test algorithms, optimization strategies, 
-                and clean code principles across different problem domains.
+                and clean code principles.
             </p>
+            <div class="tech-stack">
+                <span>Algorithms</span>
+                <span>Optimization</span>
+                <span>C++ / Python</span>
+            </div>
         </div>
 
-        <div class="project">
-            <h3>AI Workflows</h3>
+        <div class="project tilt-card hover-trigger">
+            <div class="project-header">
+                <h3>AI Workflows</h3>
+            </div>
             <p>
                 Developed structured workflows where AI assists in ideation, validation, 
                 and debugging without replacing human reasoning.
             </p>
+            <div class="tech-stack">
+                <span>Workflow Design</span>
+                <span>Prompt Eng.</span>
+                <span>Automation</span>
+            </div>
         </div>
-    </div>
-</section>
 
-<section class="thinking scroll-trigger">
-    <h2>My Mental Model</h2>
-    <ul class="thinking-list">
-        <li>Break complex problems into smaller logical components</li>
-        <li>Explore multiple solution paths before choosing one</li>
-        <li>Prefer clarity and correctness over clever shortcuts</li>
-        <li>Design systems that remain understandable over time</li>
-    </ul>
+    </div>
 </section>
 
 <section class="cta scroll-trigger" id="contactSection">
@@ -136,10 +184,21 @@
         Whether you have a clear task or an early-stage idea,
         I can help you shape it into a logical, scalable solution.
     </p>
-    <button id="finalContactBtn" class="btn primary big-btn">Get in Touch</button>
+    <button id="finalContactBtn" class="btn primary big-btn hover-trigger">Get in Touch</button>
 </section>
 
 <footer class="footer">
+    <div class="social-container">
+        <a href="https://www.instagram.com/inovustechnologies?igsh=cGlueGR4anBoZjg1" target="_blank" class="social-icon hover-trigger" title="Instagram">
+            <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61579301934602&mibextid=ZbWKwL" target="_blank" class="social-icon hover-trigger" title="Facebook">
+            <i class="ph ph-facebook-logo"></i>
+        </a>
+        <a href="https://youtube.com/@inovustechnologies?si=Kn4LcPE_enWOu1iH" target="_blank" class="social-icon hover-trigger" title="YouTube">
+            <i class="ph ph-youtube-logo"></i>
+        </a>
+    </div>
     <p>© 2025 Deepak Sharma — AI-Driven Developer</p>
 </footer>
 
