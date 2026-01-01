@@ -1,46 +1,54 @@
-/* ================= BUTTON LOGIC ================= */
+/* ================= SYSTEM INITIALIZATION ================= */
 
-// Wait for the document to fully load before running script
 document.addEventListener("DOMContentLoaded", () => {
-
-    // 1. "View Projects" Button
-    // We grab the element by ID "viewProjectsBtn"
-    const viewProjectsBtn = document.getElementById("viewProjectsBtn");
     
+    // 1. HERO ANIMATION TRIGGER
+    // We add the 'visible' class to hero elements shortly after load
+    const heroElements = document.querySelectorAll(".anim-hidden");
+    heroElements.forEach(el => {
+        el.classList.add("visible");
+    });
+
+    // 2. SCROLL OBSERVER (The "Magic" Part)
+    // This watches elements as you scroll down
+    const observerOptions = {
+        threshold: 0.15 // Trigger when 15% of the element is visible
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, observerOptions);
+
+    // Find all sections that need to animate
+    const scrollElements = document.querySelectorAll(".scroll-trigger");
+    scrollElements.forEach(el => scrollObserver.observe(el));
+
+    // 3. BUTTON LOGIC (Retained & Polished)
+    
+    // View Projects
+    const viewProjectsBtn = document.getElementById("viewProjectsBtn");
     if (viewProjectsBtn) {
         viewProjectsBtn.addEventListener("click", () => {
-            console.log("View Projects clicked");
-            const projectsSection = document.getElementById("projects");
-            if (projectsSection) {
-                // Smoothly scroll to the projects section
-                projectsSection.scrollIntoView({ behavior: "smooth" });
-            }
+            document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
         });
     }
 
-    // 2. Top "Contact" Button
-    // We grab the element by ID "contactBtn"
+    // Top Contact
     const contactBtn = document.getElementById("contactBtn");
-    
     if (contactBtn) {
         contactBtn.addEventListener("click", () => {
-            console.log("Top Contact clicked");
-            const contactSection = document.getElementById("contactSection");
-            if (contactSection) {
-                // Smoothly scroll to the bottom CTA section
-                contactSection.scrollIntoView({ behavior: "smooth" });
-            }
+            document.getElementById("contactSection").scrollIntoView({ behavior: "smooth" });
         });
     }
 
-    // 3. "Get in Touch" Button (Active Email Trigger)
-    // We grab the element by ID "finalContactBtn"
+    // Email Button
     const finalContactBtn = document.getElementById("finalContactBtn");
-
     if (finalContactBtn) {
         finalContactBtn.addEventListener("click", () => {
-            console.log("Final Contact clicked - Opening Mail Client");
-            // This line opens the default email app with your address
             window.location.href = "mailto:sharma05deep@gmail.com";
         });
     }
