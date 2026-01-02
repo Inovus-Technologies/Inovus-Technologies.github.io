@@ -243,6 +243,47 @@ p { color: var(--text-muted); font-size: 1.05rem; max-width: 700px; }
 }
 @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
+/* ================= STORY TOGGLE ================= */
+.full-story {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    margin-top: 0;
+}
+
+.full-story.expanded {
+    max-height: 1000px; /* Large enough to fit content */
+    opacity: 1;
+    margin-top: 30px;
+}
+
+.story-headline {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-family: var(--font-mono);
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 20px;
+    border-bottom: 1px dashed var(--accent);
+    padding-bottom: 2px;
+    transition: all 0.3s;
+}
+
+.btn-text:hover {
+    color: #fff;
+    border-color: #fff;
+    letter-spacing: 1px;
+}
+
 /* Cards */
 .skills-grid, .project-list { display: grid; gap: 30px; }
 .skills-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
