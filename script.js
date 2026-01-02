@@ -167,6 +167,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    /* ================= STORY TOGGLE LOGIC ================= */
+    const readMoreBtn = document.getElementById('readMoreBtn');
+    const storyContent = document.getElementById('about-story');
+
+    if (readMoreBtn && storyContent) {
+        readMoreBtn.addEventListener('click', () => {
+            storyContent.classList.toggle('expanded');
+            
+            if (storyContent.classList.contains('expanded')) {
+                readMoreBtn.textContent = "Close Journey ↑";
+            } else {
+                readMoreBtn.textContent = "Read My Journey ↓";
+                // Optional: Scroll back up slightly to keep context
+                document.getElementById('summary').scrollIntoView({behavior: "smooth"});
+            }
+        });
+    }
+
     // Tilt
     document.querySelectorAll('.tilt-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
