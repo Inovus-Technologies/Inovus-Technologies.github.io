@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
 
     <title>Deepak Sharma | AI-Driven Systems</title>
     <meta name="description" content="Deepak Sharma is an AI-driven developer focused on logic-first programming.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -28,20 +28,67 @@
 
 <div id="custom-cursor"></div>
 
-<canvas id="neural-canvas"></canvas>
+<div id="ai-widget">
+    <div class="ai-header">
+        <div class="ai-status">
+            <span class="dot pulse"></span>
+            <span>DS_CORE v3.0</span>
+        </div>
+        <button id="close-ai"><i class="ph ph-x"></i></button>
+    </div>
+    
+    <div class="ai-messages" id="ai-messages">
+        </div>
+    
+    <div class="ai-controls" id="ai-controls"></div>
 
+    <div class="ai-input-container">
+        <input type="text" id="ai-input" placeholder="Ask me anything..." autocomplete="off">
+        <button id="ai-send"><i class="ph ph-paper-plane-right"></i></button>
+    </div>
+</div>
+
+<div class="ai-wrapper">
+    <span id="ai-label">Ask AI</span>
+    <button id="ai-trigger" class="hover-trigger">
+        <i class="ph ph-chat-teardrop-text"></i>
+    </button>
+</div>
+
+<div id="terminal-overlay">
+    <div class="terminal-box">
+        <div class="scanline"></div>
+        <div class="terminal-header">
+            <div class="header-buttons">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">user@deepak-portfolio:~</span>
+            <button id="close-terminal">×</button>
+        </div>
+        <div class="terminal-content" id="terminal-scroll-area">
+            <div id="terminal-output"></div>
+            <div class="input-line">
+                <span class="prompt">➜</span>
+                <span class="directory">~</span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+</div>
+
+<canvas id="neural-canvas"></canvas>
 <div class="scroll-progress"></div>
 
 <nav class="navbar">
     <div class="logo">DS<span class="dot">.</span></div>
-    
     <ul class="nav-links">
         <li><a href="#summary" class="hover-trigger">About</a></li>
         <li><a href="#skills" class="hover-trigger">Skills</a></li>
         <li><a href="#projects" class="hover-trigger">Work</a></li>
         <li><button id="navContactBtn" class="btn-small hover-trigger">Contact</button></li>
     </ul>
-
     <div class="menu-toggle hover-trigger" id="mobile-menu">
         <span class="bar top"></span>
         <span class="bar bottom"></span>
@@ -54,6 +101,8 @@
         <a href="#skills" class="mobile-link" style="--i:2;">Skills</a>
         <a href="#projects" class="mobile-link" style="--i:3;">Work</a>
         <a href="#contactSection" class="mobile-link" style="--i:4;">Contact</a>
+        <button id="mobile-terminal-btn" class="mobile-link" style="--i:5;">Terminal_</button>
+        <button id="mobile-close-btn" class="mobile-link" style="--i:6;">Close Menu</button>
     </nav>
 </div>
 
@@ -62,17 +111,14 @@
         <div class="hero-label anim-hidden delay-1">
             <span class="status-dot"></span> System Status: Online
         </div>
-        
         <h1 class="anim-hidden delay-2">
             Building systems with <br> 
             <span class="typing-text"></span><span class="cursor">|</span>
         </h1>
-
         <p class="hero-subtext anim-hidden delay-3">
             I’m Deepak Sharma. I use Artificial Intelligence as a reasoning partner
             to build scalable, logic-driven software solutions.
         </p>
-
         <div class="hero-actions anim-hidden delay-4">
             <button id="viewProjectsBtn" class="btn primary hover-trigger">View Projects</button>
             <button id="contactBtn" class="btn secondary hover-trigger">Contact</button>
@@ -82,17 +128,14 @@
 
 <section class="summary scroll-trigger" id="summary">
     <h2>Professional Summary</h2>
-    
     <div class="text-block">
         <p class="intro-text">
             I am a self-driven developer focused on computer science fundamentals 
             and system-level design. My work emphasizes logic-first solutions, 
             explainability, and scalable thinking over quick fixes.
         </p>
-
         <div class="full-story" id="about-story">
             <h3 class="story-headline">Fueled by Curiosity, Forged by Grit.</h3>
-            
             <p>
                 My journey into computer science didn't start in a university lecture hall; it started with a detour. 
                 Born in Borana and raised in Telangana, my formal education abruptly ended at age 11 due to a single 
@@ -113,8 +156,7 @@
                 I deconstruct problems to their core and build resilient, logic-driven systems.
             </p>
         </div>
-
-        <button id="readMoreBtn" class="btn-text">Read My Journey ↓</button>
+        <button id="readMoreBtn" class="btn-text hover-trigger">Read My Journey ↓</button>
     </div>
 </section>
 
@@ -154,8 +196,7 @@
 <section class="projects scroll-trigger" id="projects">
     <h2>Selected Work</h2>
     <div class="project-list">
-        
-        <div class="project tilt-card hover-trigger">
+        <div class="project tilt-card hover-trigger hologram">
             <div class="project-header">
                 <h3>Indus AI Project</h3>
                 <span class="project-status">Concept</span>
@@ -172,7 +213,7 @@
             <a href="https://www.linkedin.com/posts/deepak-sharma-aaa280331_ai-machinelearning-innovation-activity-7356348594997628930-5iHg" target="_blank" class="link-text hover-trigger">View Concept →</a>
         </div>
         
-        <div class="project tilt-card hover-trigger">
+        <div class="project tilt-card hover-trigger hologram">
             <div class="project-header">
                 <h3>Logic Prototypes</h3>
             </div>
@@ -187,7 +228,7 @@
             </div>
         </div>
 
-        <div class="project tilt-card hover-trigger">
+        <div class="project tilt-card hover-trigger hologram">
             <div class="project-header">
                 <h3>AI Workflows</h3>
             </div>
@@ -201,30 +242,65 @@
                 <span>Automation</span>
             </div>
         </div>
-
     </div>
 </section>
 
-<section class="cta scroll-trigger" id="contactSection">
-    <h2>Let’s Build Something Intelligent</h2>
-    <p>
-        Whether you have a clear task or an early-stage idea,
-        I can help you shape it into a logical, scalable solution.
-    </p>
-    <button id="finalContactBtn" class="btn primary big-btn hover-trigger">Get in Touch</button>
+<section class="contact-section scroll-trigger" id="contactSection">
+    <div class="contact-container">
+        <div class="contact-text">
+            <h2>Let’s Build Something <br> <span class="highlight">Intelligent.</span></h2>
+            <p>
+                Have a project in mind? Fill out the details below, and I’ll analyze the requirements and get back to you shortly.
+            </p>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="ph ph-envelope-simple"></i>
+                    <span>sharma05deep@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="ph ph-map-pin"></i>
+                    <span>Borana, Rajasthan, India</span>
+                </div>
+            </div>
+        </div>
+
+        <form class="premium-form" id="contactForm">
+            <div class="input-group">
+                <input type="text" name="name" id="name" required placeholder=" " class="hover-trigger">
+                <label for="name">Name</label>
+                <div class="line"></div>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" id="email" required placeholder=" " class="hover-trigger">
+                <label for="email">Email</label>
+                <div class="line"></div>
+            </div>
+            <div class="input-group">
+                <input type="tel" name="phone" id="phone" placeholder=" " class="hover-trigger">
+                <label for="phone">Phone (Optional)</label>
+                <div class="line"></div>
+            </div>
+            <div class="input-group">
+                <textarea name="message" id="message" required placeholder=" " class="hover-trigger"></textarea>
+                <label for="message">Message</label>
+                <div class="line"></div>
+            </div>
+            <input type="hidden" name="_captcha" value="false">
+            <button type="submit" class="btn primary submit-btn hover-trigger">
+                <span>Send Message</span>
+                <i class="ph ph-paper-plane-right"></i>
+            </button>
+            <p id="form-status"></p>
+        </form>
+    </div>
 </section>
 
 <footer class="footer">
     <div class="social-container">
-        <a href="https://www.instagram.com/inovustechnologies?igsh=cGlueGR4anBoZjg1" target="_blank" class="social-icon hover-trigger" title="Instagram">
-            <i class="ph ph-instagram-logo"></i>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61579301934602&mibextid=ZbWKwL" target="_blank" class="social-icon hover-trigger" title="Facebook">
-            <i class="ph ph-facebook-logo"></i>
-        </a>
-        <a href="https://youtube.com/@inovustechnologies?si=Kn4LcPE_enWOu1iH" target="_blank" class="social-icon hover-trigger" title="YouTube">
-            <i class="ph ph-youtube-logo"></i>
-        </a>
+        <a href="https://www.instagram.com/inovustechnologies?igsh=cGlueGR4anBoZjg1" target="_blank" class="social-icon hover-trigger" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61579301934602" target="_blank" class="social-icon hover-trigger" title="Facebook"><i class="ph ph-facebook-logo"></i></a>
+        <a href="https://youtube.com/@inovustechnologies" target="_blank" class="social-icon hover-trigger" title="YouTube"><i class="ph ph-youtube-logo"></i></a>
+        <button id="terminal-trigger" class="social-icon hover-trigger" title="Open Terminal"><i class="ph ph-terminal-window"></i></button>
     </div>
     <p>© 2025 Deepak Sharma — AI-Driven Developer</p>
 </footer>
